@@ -2,73 +2,67 @@
 
 /* ============================================================
    TOKENS
-   Palette: pale vellum ground, deep ink, brass accent.
-   Chosen for an instrument face — a measuring device, not paper.
+   Vellum ground, deep ink, brass accent, petrol for the dark band.
+   The page reads as an instrument face, not a document.
    ============================================================ */
 :root {
   --vellum: #e8e9e2;
   --paper: #f3f4ee;
   --ink: #14181a;
-  --ink-2: #5c645f;
-  --ink-3: #8b918a;
+  --ink-2: #4f5854;
+  --ink-3: #838a83;
   --rule: #c4c7bd;
   --brass: #8a6a16;
-  --brass-soft: #b9932f;
-  --petrol: #1e3a42;
+  --brass-lt: #b9932f;
+
+  /* dark band */
+  --petrol: #16303a;
+  --petrol-2: #1e3d48;
+  --petrol-rule: #33525d;
+  --band-ink: #dfe7e8;
+  --band-ink-2: #9db0b5;
+  --brass-on-dark: #c99a32;
+  --brass-dk: #8f6e22;
 
   --shell: 68rem;
-  --gap: clamp(1rem, 3vw, 2rem);
-  --pad-y: clamp(3.5rem, 8vw, 6.5rem);
+  --gap: clamp(1.15rem, 3.4vw, 2.25rem);
+  --pad-y: clamp(3.25rem, 7vw, 5.75rem);
 
-  --font-display: "Archivo Variable", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Public Sans Variable", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "Spline Sans Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Bricolage Grotesque Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Newsreader Variable", Georgia, "Times New Roman", serif;
+  --font-mono: "Chivo Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
   background: var(--vellum);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.06rem;
   line-height: 1.62;
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
-}
-
-:focus-visible {
-  outline: 2px solid var(--brass);
-  outline-offset: 3px;
-}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 
 /* ============================================================
    SHELL
    ============================================================ */
+.shell { overflow-x: hidden; }
+
 .page {
   max-width: var(--shell);
   margin: 0 auto;
   padding: 0 var(--gap);
 }
 
-.section {
-  padding: var(--pad-y) 0;
-}
+.section { padding: var(--pad-y) 0; }
 
-/* ------------------------------------------------------------
-   RULE — the structural motif: a measuring edge, not a divider.
-   Fine ticks every 10px, a taller mark every 50px.
-   ------------------------------------------------------------ */
+/* RULE — a measuring edge. Fine ticks every 10px, a taller mark every 50px. */
 .rule {
   height: 12px;
   border-top: 1px solid var(--ink);
@@ -77,7 +71,6 @@ a {
     repeating-linear-gradient(90deg, var(--ink-3) 0 1px, transparent 1px 50px);
   background-size: auto 5px, auto 10px;
   background-repeat: repeat-x, repeat-x;
-  background-position: 0 0, 0 0;
 }
 
 /* ============================================================
@@ -87,14 +80,15 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem 0 1rem;
+  padding: 1.15rem 0 1rem;
   border-bottom: 1px solid var(--rule);
 }
 
 .mark {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  letter-spacing: 0.22em;
+  font-weight: 600;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--ink-2);
 }
@@ -105,7 +99,7 @@ a {
   gap: 0.15rem;
   font-family: var(--font-mono);
   font-size: 0.76rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 }
 
 .lang-btn {
@@ -120,30 +114,26 @@ a {
   transition: color 0.18s ease;
 }
 
-.lang-btn:hover {
-  color: var(--ink);
-}
-
-.lang-btn[aria-pressed="true"] {
-  color: var(--brass);
-  font-weight: 600;
-}
-
-.lang-sep {
-  color: var(--rule);
-}
+.lang-btn:hover { color: var(--ink); }
+.lang-btn[aria-pressed="true"] { color: var(--brass); font-weight: 700; }
+.lang-sep { color: var(--rule); }
 
 /* ============================================================
    HERO
    ============================================================ */
-.hero {
-  padding: clamp(2.75rem, 7vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+.hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2.25rem, 5vw, 3.25rem); }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(9rem, 19vw, 14.5rem);
+  gap: clamp(1.5rem, 5vw, 3.5rem);
+  align-items: start;
 }
 
 .hero-meta {
-  margin: 0 0 clamp(1.4rem, 3vw, 2.1rem);
+  margin: 0 0 clamp(1.1rem, 2.6vw, 1.7rem);
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ink-2);
@@ -152,79 +142,147 @@ a {
 .hero-title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7.4vw, 5.1rem);
+  font-size: clamp(2.4rem, 6.6vw, 4.6rem);
   font-weight: 700;
-  font-stretch: 118%;
-  line-height: 0.96;
-  letter-spacing: -0.022em;
+  font-stretch: 112%;
+  line-height: 0.98;
+  letter-spacing: -0.024em;
   text-wrap: balance;
 }
 
 .hero-lede {
-  margin: clamp(1.3rem, 3vw, 1.9rem) 0 0;
-  max-width: 46ch;
-  font-size: clamp(1.02rem, 1.7vw, 1.19rem);
-  line-height: 1.58;
+  margin: clamp(1.2rem, 2.6vw, 1.7rem) 0 0;
+  max-width: 44ch;
+  font-size: clamp(1.06rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
   color: var(--ink-2);
 }
 
-/* ------------------------------------------------------------
-   GAUGE — the signature.
-   The compression this work exists to produce, drawn to scale.
-   ------------------------------------------------------------ */
-.gauge {
-  margin: clamp(2.5rem, 6vw, 3.75rem) 0 0;
-  padding: clamp(1.25rem, 3vw, 1.85rem) clamp(1.1rem, 3vw, 1.75rem) clamp(1.1rem, 2.5vw, 1.5rem);
-  background: var(--paper);
-  border: 1px solid var(--rule);
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin: clamp(1.4rem, 2.8vw, 2rem) 0 0;
 }
 
-.gauge-label {
+/* Primary action — the one solid mass on the page. */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.72rem 1.15rem;
+  background: var(--ink);
+  color: var(--vellum);
+  border: 1px solid var(--ink);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.cta:hover { background: var(--brass); border-color: var(--brass); color: #fff; }
+
+.cta-ico { width: 15px; height: 15px; flex: 0 0 auto; transition: transform 0.18s ease; }
+.cta:hover .cta-ico { transform: translateY(2px); }
+
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.34rem 0.7rem 0.34rem 0.6rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ink-2);
 }
 
-.gauge-rows {
-  margin-top: 1.15rem;
-  display: grid;
-  gap: 0.5rem;
+.pip {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brass);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brass) 22%, transparent);
 }
+
+/* PORTRAIT */
+.portrait { margin: 0; }
+
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+
+.portrait-rule {
+  height: 7px;
+  margin-top: 6px;
+  border-top: 1px solid var(--ink-3);
+  background-image: repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 8px);
+  background-size: auto 4px;
+  background-repeat: repeat-x;
+}
+
+.portrait-cap {
+  margin-top: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ------------------------------------------------------------
+   GAUGE — the signature: the compression, drawn to scale.
+   ------------------------------------------------------------ */
+.gauge {
+  margin: clamp(2.5rem, 5.5vw, 3.75rem) 0 0;
+  padding: clamp(1.2rem, 3vw, 1.8rem) clamp(1.05rem, 3vw, 1.7rem) clamp(1.05rem, 2.5vw, 1.45rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+.gauge-label,
+.tl-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.gauge-rows { margin-top: 1.1rem; display: grid; gap: 0.5rem; }
 
 .gauge-row {
   display: grid;
-  grid-template-columns: 4.6rem 1fr;
+  grid-template-columns: 4.6rem minmax(0, 1fr);
   align-items: center;
   gap: 0.8rem;
 }
 
 .gauge-key {
   font-family: var(--font-mono);
-  font-size: 0.73rem;
-  letter-spacing: 0.1em;
+  font-size: 0.71rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ink-2);
   text-align: right;
 }
 
-.gauge-track {
-  height: 1.45rem;
-  background: color-mix(in srgb, var(--rule) 34%, transparent);
-}
-
-.gauge-bar {
-  height: 100%;
-}
+.gauge-track { height: 1.45rem; background: color-mix(in srgb, var(--rule) 34%, transparent); }
+.gauge-bar { height: 100%; border-radius: 0 3px 3px 0; }
 
 .gauge-bar--before {
   width: 100%;
-  background-image: repeating-linear-gradient(
-    45deg,
-    var(--ink-3) 0 2px,
-    transparent 2px 7px
-  );
+  background-image: repeating-linear-gradient(45deg, var(--ink-3) 0 2px, transparent 2px 7px);
   border-right: 1px solid var(--ink-3);
 }
 
@@ -235,12 +293,8 @@ a {
 }
 
 @keyframes compress {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: 8%;
-  }
+  0% { width: 100%; }
+  100% { width: 8%; }
 }
 
 .gauge-scale {
@@ -257,50 +311,54 @@ a {
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   color: var(--ink-3);
 }
 
 .gauge-caption {
-  margin: 1.35rem 0 0;
-  padding-top: 0.95rem;
+  margin: 1.3rem 0 0;
+  padding-top: 0.9rem;
   border-top: 1px solid var(--rule);
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.96rem;
+  line-height: 1.5;
   color: var(--ink-2);
 }
 
 .gauge-figure {
   font-family: var(--font-display);
   font-weight: 700;
-  font-stretch: 112%;
+  font-stretch: 108%;
   color: var(--brass);
-  letter-spacing: -0.01em;
 }
 
 /* ============================================================
    SECTION HEADINGS
    ============================================================ */
 .eyebrow {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.8rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.71rem;
+  font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--brass);
 }
 
+.eyebrow--inv { color: var(--brass-on-dark); }
+
 .h2 {
-  margin: 0 0 clamp(1.8rem, 4vw, 2.6rem);
-  max-width: 22ch;
+  margin: 0 0 clamp(1.7rem, 3.6vw, 2.5rem);
+  max-width: 21ch;
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3.3vw, 2.35rem);
-  font-weight: 600;
-  font-stretch: 108%;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+  font-weight: 650;
+  font-stretch: 104%;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
+
+.h2--inv { color: #fff; }
 
 /* ============================================================
    WORK CARDS
@@ -313,29 +371,21 @@ a {
   border: 1px solid var(--rule);
 }
 
-.card {
-  padding: clamp(1.3rem, 3vw, 1.9rem);
-  background: var(--paper);
-}
+.card { padding: clamp(1.25rem, 3vw, 1.9rem); background: var(--paper); }
 
 .card-title {
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.65rem;
   font-family: var(--font-display);
-  font-size: 1.12rem;
-  font-weight: 650;
-  font-stretch: 106%;
-  letter-spacing: -0.008em;
+  font-size: 1.14rem;
+  font-weight: 700;
+  font-stretch: 102%;
+  letter-spacing: -0.012em;
 }
 
-.card-body {
-  margin: 0;
-  font-size: 0.925rem;
-  line-height: 1.6;
-  color: var(--ink-2);
-}
+.card-body { margin: 0; font-size: 0.97rem; line-height: 1.56; color: var(--ink-2); }
 
 .card-tags {
-  margin: 1.05rem 0 0;
+  margin: 1rem 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -344,156 +394,239 @@ a {
 }
 
 .card-tags li {
-  padding: 0.18rem 0.5rem;
+  padding: 0.16rem 0.5rem;
   border: 1px solid var(--rule);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.05em;
+  font-size: 0.67rem;
+  letter-spacing: 0.03em;
   color: var(--ink-2);
 }
 
 /* ============================================================
-   TIMELINE — years are data, so they carry the structure.
+   DARK BAND — the page's one change of ground
    ============================================================ */
+.band {
+  background: var(--petrol);
+  color: var(--band-ink);
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.band .path-body,
+.band .path-org { color: var(--band-ink-2); }
+
+/* TIMELINE CHART */
+.tl { margin: 0 0 clamp(2rem, 4vw, 3rem); }
+.tl-label { color: var(--band-ink-2); }
+.tl-svg { display: block; width: 100%; margin-top: 1rem; overflow: visible; }
+
+.tl-grid { stroke: var(--petrol-rule); stroke-width: 1; opacity: 0.55; }
+.tl-axis { stroke: var(--petrol-rule); stroke-width: 1; }
+
+.tl-tick,
+.tl-years {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  fill: var(--band-ink-2);
+}
+
+.tl-tick { text-anchor: middle; }
+
+.tl-role {
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 650;
+  fill: var(--band-ink);
+}
+
+.tl-bar { transition: opacity 0.18s ease; }
+.tl-bar--live { fill: var(--brass-on-dark); }
+.tl-bar--past { fill: url(#tlHatch); stroke: var(--brass-dk); stroke-width: 1; }
+.tl-tip { fill: var(--brass-on-dark); }
+.tl-row:hover .tl-bar { opacity: 0.78; }
+
+.tl-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--band-ink-2);
+}
+
+.tl-key-item { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+.tl-sw { width: 15px; height: 9px; border-radius: 2px; }
+.tl-sw--live { background: var(--brass-on-dark); }
+.tl-sw--past {
+  border: 1px solid var(--brass-dk);
+  background-image: repeating-linear-gradient(45deg, var(--brass-dk) 0 2px, transparent 2px 6px);
+}
+
+/* TIMELINE LIST */
 .path-item {
   display: grid;
-  grid-template-columns: 6.5rem 1fr;
+  grid-template-columns: 7rem minmax(0, 1fr);
   gap: clamp(1rem, 3vw, 2rem);
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--rule);
+  padding: 1.45rem 0;
+  border-top: 1px solid var(--petrol-rule);
 }
 
-.path-item:last-child {
-  border-bottom: 1px solid var(--rule);
-}
+.path-item:last-child { border-bottom: 1px solid var(--petrol-rule); }
 
 .path-year {
-  font-family: var(--font-mono);
-  font-size: 1.02rem;
-  color: var(--brass);
-  letter-spacing: 0.04em;
-  padding-top: 0.12rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-weight: 700;
+  font-stretch: 106%;
+  line-height: 1;
+  color: var(--brass-on-dark);
+  letter-spacing: -0.02em;
 }
 
 .path-role {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.12rem;
+  font-size: 1.14rem;
   font-weight: 650;
-  font-stretch: 106%;
-  letter-spacing: -0.008em;
+  color: #fff;
+  letter-spacing: -0.012em;
 }
 
 .path-org {
-  margin: 0.2rem 0 0;
+  margin: 0.22rem 0 0;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.06em;
+  font-size: 0.71rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--ink-3);
 }
 
-.path-body {
-  margin: 0.75rem 0 0;
-  max-width: 58ch;
-  font-size: 0.925rem;
-  color: var(--ink-2);
-}
+.path-body { margin: 0.7rem 0 0; max-width: 58ch; font-size: 0.97rem; }
 
 /* ============================================================
    STACK TABLE
    ============================================================ */
 .stack-row {
   display: grid;
-  grid-template-columns: 13rem 1fr;
+  grid-template-columns: 13rem minmax(0, 1fr);
   gap: clamp(0.75rem, 2vw, 1.5rem);
   padding: 0.72rem 0;
   border-top: 1px solid var(--rule);
 }
 
-.stack-row:last-of-type {
-  border-bottom: 1px solid var(--rule);
-}
+.stack-row:last-of-type { border-bottom: 1px solid var(--rule); }
 
 .stack-k {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.13em;
+  font-size: 0.71rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-3);
-  padding-top: 0.18rem;
+  padding-top: 0.2rem;
 }
 
-.stack-v {
-  font-size: 0.95rem;
-}
-
-.stack-note {
-  margin: 1.7rem 0 0;
-  max-width: 58ch;
-  font-size: 0.9rem;
-  color: var(--ink-2);
-}
+.stack-v { font-size: 0.99rem; }
+.stack-note { margin: 1.6rem 0 0; max-width: 58ch; font-size: 0.94rem; color: var(--ink-2); }
 
 /* ============================================================
    CREDENTIALS
    ============================================================ */
 .cred-row {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   gap: 1rem;
-  padding: 0.95rem 0;
+  padding: 0.85rem 0;
   border-top: 1px solid var(--rule);
 }
 
-.cred-row:last-of-type {
-  border-bottom: 1px solid var(--rule);
+.cred-row:last-of-type { border-bottom: 1px solid var(--rule); }
+
+.cred-main { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+
+.cred-mark {
+  flex: 0 0 auto;
+  width: 2.9rem;
+  height: 2.9rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule);
+  background: var(--paper);
 }
 
-.cred-title {
-  margin: 0;
-  font-size: 1rem;
+.cred-logo { width: 1.9rem; height: auto; object-fit: contain; }
+
+.cred-initials {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   font-weight: 600;
-}
-
-.cred-org {
-  margin: 0.15rem 0 0;
-  font-size: 0.875rem;
+  letter-spacing: 0.06em;
   color: var(--ink-2);
 }
 
+.cred-title { margin: 0; font-family: var(--font-display); font-size: 1.02rem; font-weight: 650; }
+.cred-org { margin: 0.1rem 0 0; font-size: 0.9rem; color: var(--ink-2); }
+
 .cred-meta {
   font-family: var(--font-mono);
-  font-size: 0.73rem;
-  letter-spacing: 0.06em;
+  font-size: 0.71rem;
+  letter-spacing: 0.05em;
   color: var(--ink-3);
   white-space: nowrap;
 }
 
 /* ============================================================
-   CONTACT
+   PERSONAL — an instrument readout of a person
    ============================================================ */
-.contact-body {
-  margin: -1rem 0 2rem;
-  max-width: 46ch;
-  color: var(--ink-2);
+.pers-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.25rem);
+  align-items: start;
 }
 
-.contact-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--rule);
-}
+.pers-prose p { margin: 0 0 1rem; max-width: 46ch; font-size: 1.04rem; }
+.pers-prose p:last-child { margin-bottom: 0; color: var(--ink-2); }
 
-.contact-item {
+.readout { margin: 0; border-top: 1px solid var(--ink); }
+
+.readout-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  padding: 0.6rem 0;
   border-bottom: 1px solid var(--rule);
 }
 
+.readout-row dt {
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.readout-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ink);
+  text-align: right;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-body { margin: -1rem 0 2rem; max-width: 46ch; color: var(--ink-2); }
+.contact-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.contact-item { border-bottom: 1px solid var(--rule); }
+
 .contact-link {
   display: grid;
-  grid-template-columns: 7.5rem 1fr auto;
+  grid-template-columns: 7.5rem minmax(0, 1fr) auto;
   align-items: center;
   gap: 1rem;
   padding: 0.95rem 0.25rem;
@@ -501,35 +634,20 @@ a {
   transition: background-color 0.16s ease, padding-left 0.16s ease;
 }
 
-.contact-link:hover {
-  background: var(--paper);
-  padding-left: 0.75rem;
-}
+.contact-link:hover { background: var(--paper); padding-left: 0.75rem; }
 
 .contact-label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.13em;
+  font-size: 0.71rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-3);
 }
 
-.contact-value {
-  font-size: 0.98rem;
-  overflow-wrap: anywhere;
-}
-
-.contact-arrow {
-  font-family: var(--font-mono);
-  color: var(--brass);
-  opacity: 0;
-  transition: opacity 0.16s ease;
-}
-
+.contact-value { font-size: 1rem; overflow-wrap: anywhere; }
+.contact-arrow { font-family: var(--font-mono); color: var(--brass); opacity: 0; transition: opacity 0.16s ease; }
 .contact-link:hover .contact-arrow,
-.contact-link:focus-visible .contact-arrow {
-  opacity: 1;
-}
+.contact-link:focus-visible .contact-arrow { opacity: 1; }
 
 /* ============================================================
    FOOTER
@@ -542,8 +660,8 @@ a {
   padding: 1.5rem 0 2.5rem;
   border-top: 1px solid var(--ink);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--ink-3);
 }
@@ -551,56 +669,32 @@ a {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 860px) {
+  .pers-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (max-width: 760px) {
-  .cards {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .path-item {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.6rem;
-  }
-
-  .stack-row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.3rem;
-  }
-
-  .cred-row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.35rem;
-  }
-
-  .contact-link {
-    grid-template-columns: 1fr auto;
-  }
-
-  .contact-label {
-    grid-column: 1 / -1;
-  }
-
-  .gauge-row {
-    grid-template-columns: 3.9rem 1fr;
-  }
-
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .portrait { order: -1; width: min(11rem, 46vw); }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .path-item { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; }
+  .stack-row { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; }
+  .cred-row { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+  .cred-meta { padding-left: 3.9rem; }
+  .contact-link { grid-template-columns: minmax(0, 1fr) auto; }
+  .contact-label { grid-column: 1 / -1; }
+  .gauge-row { grid-template-columns: 3.9rem minmax(0, 1fr); }
   .gauge-scale,
-  .gauge-ticks {
-    margin-left: 4.7rem;
-  }
+  .gauge-ticks { margin-left: 4.7rem; }
 }
 
 /* ============================================================
    MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  .gauge-bar--after {
-    animation: none;
-    width: 8%;
-  }
-
+  .gauge-bar--after { animation: none; width: 8%; }
   .contact-link,
   .contact-arrow,
-  .lang-btn {
-    transition: none;
-  }
+  .lang-btn,
+  .tl-bar { transition: none; }
 }

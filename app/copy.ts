@@ -1,13 +1,33 @@
 export type Lang = "es" | "en";
 
+/** Spans are data, not copy — shared across languages. Decimal years. */
+export const SPANS = [
+  { start: 2020.0, end: 2022.0, current: false },
+  { start: 2022.0, end: 2026.62, current: true },
+  { start: 2026.08, end: 2026.62, current: true },
+];
+
+export const AXIS_YEARS = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
+
+const links = {
+  mail: "sebasmollinedo@gmail.com",
+  phone: "+502 5901-1927",
+  linkedin: "linkedin.com/in/sebasmollinedo",
+  github: "github.com/sebasmollinedo-dotcom",
+};
+
 export type Copy = {
   meta: { title: string; description: string };
   nav: { toggleLabel: string };
   hero: {
     name: string;
     place: string;
+    available: string;
+    cta: string;
     role: string;
     lede: string;
+    photoAlt: string;
+    photoCaption: string;
   };
   gauge: {
     label: string;
@@ -24,7 +44,10 @@ export type Copy = {
   path: {
     eyebrow: string;
     title: string;
-    items: { year: string; role: string; org: string; body: string }[];
+    chartLabel: string;
+    current: string;
+    closed: string;
+    items: { year: string; role: string; org: string; short: string; body: string }[];
   };
   stack: {
     eyebrow: string;
@@ -37,6 +60,12 @@ export type Copy = {
     title: string;
     items: { title: string; org: string; meta: string }[];
   };
+  personal: {
+    eyebrow: string;
+    title: string;
+    body: string[];
+    readout: { k: string; v: string }[];
+  };
   contact: {
     eyebrow: string;
     title: string;
@@ -44,13 +73,6 @@ export type Copy = {
     links: { label: string; value: string; href: string }[];
   };
   footer: string;
-};
-
-const links = {
-  mail: "sebasmollinedo@gmail.com",
-  phone: "+502 5901-1927",
-  linkedin: "linkedin.com/in/sebasmollinedo",
-  github: "github.com/sebasmollinedo-dotcom",
 };
 
 export const copy: Record<Lang, Copy> = {
@@ -64,8 +86,12 @@ export const copy: Record<Lang, Copy> = {
     hero: {
       name: "Sebastián Mollinedo",
       place: "Guatemala",
+      available: "Disponible para nuevas oportunidades",
+      cta: "Descargar CV en PDF",
       role: "Gerente de Tecnología y Analítica",
       lede: "Construyo sistemas que convierten operación en decisiones medibles. ERPs multi-sucursal, modelos predictivos aplicados a precio e inventario, y automatización con inteligencia artificial.",
+      photoAlt: "Retrato de Sebastián Mollinedo",
+      photoCaption: "22 años · Guatemala",
     },
     gauge: {
       label: "Tiempo de gestión operativa, por proceso",
@@ -104,23 +130,29 @@ export const copy: Record<Lang, Copy> = {
     path: {
       eyebrow: "Trayectoria",
       title: "De escribir el sistema a dirigir el área",
+      chartLabel: "Períodos por posición",
+      current: "En curso",
+      closed: "Concluido",
       items: [
         {
           year: "2020",
           role: "Desarrollador de plataformas digitales",
           org: "Grupo empresarial de retail · Guatemala",
+          short: "Desarrollador",
           body: "Entré a construir el ERP. Responsable único del ciclo completo: requerimientos, arquitectura, desarrollo, despliegue y mantenimiento.",
         },
         {
           year: "2022",
           role: "Gerente de Tecnología y Analítica",
           org: "Holding del grupo",
+          short: "Gerente de Tecnología y Analítica",
           body: "Dirección del departamento con un equipo de 15 personas. Estrategia, prioridades y presupuesto del área, además del CRM y la venta omnicanal.",
         },
         {
           year: "2026",
           role: "Fundador y director",
           org: "Forma3D",
+          short: "Fundador · Forma3D",
           body: "Manufactura por impresión 3D bajo pedido. En expansión hacia la distribución de insumos en Guatemala, bajo esquema B2B y B2C.",
         },
       ],
@@ -165,6 +197,22 @@ export const copy: Record<Lang, Copy> = {
         },
       ],
     },
+    personal: {
+      eyebrow: "Fuera del trabajo",
+      title: "Once años de tatami",
+      body: [
+        "Practiqué karate Kempo durante once años, hasta cinta negra. En 2019 gané el Campeonato Panamericano en combate por puntos — categoría de adultos, más de 180 libras. Tenía quince años.",
+        "Competir enseña algo que el código no: el resultado se mide el día del torneo, no en los entrenamientos que uno cree que salieron bien. Construyo sistemas con la misma vara.",
+      ],
+      readout: [
+        { k: "Disciplina", v: "Karate Kempo" },
+        { k: "Grado", v: "Cinta negra" },
+        { k: "Años de práctica", v: "11" },
+        { k: "Modalidad", v: "Combate por puntos" },
+        { k: "Categoría", v: "18+ · +180 lb" },
+        { k: "Edad al ganar", v: "15" },
+      ],
+    },
     contact: {
       eyebrow: "Contacto",
       title: "Hablemos",
@@ -190,8 +238,12 @@ export const copy: Record<Lang, Copy> = {
     hero: {
       name: "Sebastián Mollinedo",
       place: "Guatemala",
+      available: "Open to new opportunities",
+      cta: "Download résumé (PDF)",
       role: "Technology & Analytics Manager",
       lede: "I build systems that turn operations into measurable decisions. Multi-branch ERPs, predictive models applied to pricing and inventory, and automation powered by AI.",
+      photoAlt: "Portrait of Sebastián Mollinedo",
+      photoCaption: "22 · Guatemala",
     },
     gauge: {
       label: "Operational handling time, per process",
@@ -230,23 +282,29 @@ export const copy: Record<Lang, Copy> = {
     path: {
       eyebrow: "Track record",
       title: "From writing the system to running the department",
+      chartLabel: "Tenure by position",
+      current: "Ongoing",
+      closed: "Closed",
       items: [
         {
           year: "2020",
           role: "Digital platforms developer",
           org: "Retail group · Guatemala",
+          short: "Developer",
           body: "Joined to build the ERP. Sole owner of the full cycle: requirements, architecture, development, deployment, and maintenance.",
         },
         {
           year: "2022",
           role: "Technology & Analytics Manager",
           org: "Group holding company",
+          short: "Technology & Analytics Manager",
           body: "Running the department with a team of 15. Strategy, priorities, and budget for the area, plus the CRM and omnichannel sales build-out.",
         },
         {
           year: "2026",
           role: "Founder and director",
           org: "Forma3D",
+          short: "Founder · Forma3D",
           body: "Made-to-order 3D printing manufacturing. Expanding into supply distribution in Guatemala under a B2B and B2C model.",
         },
       ],
@@ -289,6 +347,22 @@ export const copy: Record<Lang, Copy> = {
           org: "Microsoft",
           meta: "2026",
         },
+      ],
+    },
+    personal: {
+      eyebrow: "Outside work",
+      title: "Eleven years on the mat",
+      body: [
+        "I trained Kempo karate for eleven years, up to black belt. In 2019 I won the Pan American Championship in point sparring — adult division, over 180 lb. I was fifteen.",
+        "Competing teaches something code doesn't: the result is measured on tournament day, not in the sessions you thought went well. I build systems by the same standard.",
+      ],
+      readout: [
+        { k: "Discipline", v: "Kempo karate" },
+        { k: "Rank", v: "Black belt" },
+        { k: "Years training", v: "11" },
+        { k: "Format", v: "Point sparring" },
+        { k: "Division", v: "18+ · 180 lb+" },
+        { k: "Age when won", v: "15" },
       ],
     },
     contact: {
