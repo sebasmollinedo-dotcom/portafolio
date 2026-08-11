@@ -4,18 +4,20 @@ Sitio personal de una sola página, bilingüe (ES/EN). Next.js App Router, sin d
 
 ## Dirección de diseño
 
-La página está construida como un **instrumento de medición**: fondo vellum, tinta profunda,
-acento latón, y marcas de regla como motivo estructural en lugar de separadores decorativos.
+Negro profundo, acento lima ácido y verdes oliva. Todo el chrome en mayúsculas con tracking
+amplio; el texto largo queda en caja baja para que se pueda leer. Grano de película, cursor
+propio, marquesina y contadores animados.
 
-El elemento firma es el medidor del hero, que dibuja a escala la compresión del tiempo de gestión
-operativa lograda con el ERP. Al cargar, la barra se comprime sola.
+Dos piezas de datos llevan el peso: el medidor del hero, que dibuja a escala la compresión del
+tiempo de gestión lograda con el ERP, y la gráfica de períodos, que muestra la progresión de
+desarrollador a gerente y el traslape con Forma3D.
 
 ## Stack
 
 - **Next.js 16** (App Router, Turbopack) · React 19 · TypeScript
 - **CSS propio** con custom properties. Sin librería de componentes.
-- **Fuentes auto-hospedadas** vía Fontsource: Archivo Variable (display, eje de anchura),
-  Public Sans Variable (texto), Spline Sans Mono Variable (datos y etiquetas).
+- **Fuentes auto-hospedadas** vía Fontsource: Syncopate (display), Josefin Sans Variable (texto).
+- **d3-scale** para las escalas de la gráfica; el SVG se dibuja a mano.
 
 ## Estructura
 

@@ -25,6 +25,7 @@ export type Copy = {
     available: string;
     cta: string;
     role: string;
+    roleLines: string[];
     lede: string;
     photoAlt: string;
     photoCaption: string;
@@ -36,6 +37,12 @@ export type Copy = {
     figure: string;
     caption: string;
   };
+  stats: {
+    eyebrow: string;
+    title: string;
+    items: { prefix: string; target: number; suffix: string; label: string }[];
+  };
+  marquee: string[];
   work: {
     eyebrow: string;
     title: string;
@@ -89,6 +96,7 @@ export const copy: Record<Lang, Copy> = {
       available: "Disponible para nuevas oportunidades",
       cta: "Descargar CV en PDF",
       role: "Gerente de Tecnología y Analítica",
+      roleLines: ["Gerente de", "Tecnología", "y Analítica"],
       lede: "Construyo sistemas que convierten operación en decisiones medibles. ERPs multi-sucursal, modelos predictivos aplicados a precio e inventario, y automatización con inteligencia artificial.",
       photoAlt: "Retrato de Sebastián Mollinedo",
       photoCaption: "22 años · Guatemala",
@@ -101,6 +109,27 @@ export const copy: Record<Lang, Copy> = {
       caption:
         "Reducción lograda al reemplazar hojas de cálculo y papel por el ERP que diseñé y desarrollé.",
     },
+    stats: {
+      eyebrow: "Medición",
+      title: "En cifras",
+      items: [
+        { prefix: "0", target: 6, suffix: "", label: "Años construyendo sistemas" },
+        { prefix: "", target: 15, suffix: "", label: "Personas a cargo" },
+        { prefix: "", target: 23, suffix: "", label: "Módulos en producción" },
+        { prefix: "", target: 90, suffix: "%", label: "Menos tiempo operativo" },
+      ],
+    },
+    marquee: [
+      "ERP multi-sucursal",
+      "Machine Learning",
+      "Automatización con IA",
+      "Python",
+      "Django",
+      "Next.js",
+      "XGBoost",
+      "MCP",
+      "Docker",
+    ],
     work: {
       eyebrow: "Qué construyo",
       title: "Cuatro frentes, un mismo oficio",
@@ -241,6 +270,7 @@ export const copy: Record<Lang, Copy> = {
       available: "Open to new opportunities",
       cta: "Download résumé (PDF)",
       role: "Technology & Analytics Manager",
+      roleLines: ["Technology", "& Analytics", "Manager"],
       lede: "I build systems that turn operations into measurable decisions. Multi-branch ERPs, predictive models applied to pricing and inventory, and automation powered by AI.",
       photoAlt: "Portrait of Sebastián Mollinedo",
       photoCaption: "22 · Guatemala",
@@ -253,6 +283,27 @@ export const copy: Record<Lang, Copy> = {
       caption:
         "Reduction achieved by replacing spreadsheets and paper with the ERP I designed and built.",
     },
+    stats: {
+      eyebrow: "Measured",
+      title: "By the numbers",
+      items: [
+        { prefix: "0", target: 6, suffix: "", label: "Years building systems" },
+        { prefix: "", target: 15, suffix: "", label: "People managed" },
+        { prefix: "", target: 23, suffix: "", label: "Modules in production" },
+        { prefix: "", target: 90, suffix: "%", label: "Less operational time" },
+      ],
+    },
+    marquee: [
+      "Multi-branch ERP",
+      "Machine Learning",
+      "AI automation",
+      "Python",
+      "Django",
+      "Next.js",
+      "XGBoost",
+      "MCP",
+      "Docker",
+    ],
     work: {
       eyebrow: "What I build",
       title: "Four fronts, one craft",

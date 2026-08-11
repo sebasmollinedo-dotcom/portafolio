@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "@fontsource-variable/bricolage-grotesque/wdth.css";
-import "@fontsource-variable/newsreader/opsz.css";
-import "@fontsource-variable/chivo-mono";
+import "@fontsource/syncopate/400.css";
+import "@fontsource/syncopate/700.css";
+import "@fontsource-variable/josefin-sans";
 import "./globals.css";
 import { copy } from "./copy";
 
