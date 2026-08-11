@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio — Sebastián Mollinedo
 
-## Getting Started
+Sitio personal de una sola página, bilingüe (ES/EN). Next.js App Router, sin dependencias de UI.
 
-First, run the development server:
+## Dirección de diseño
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+La página está construida como un **instrumento de medición**: fondo vellum, tinta profunda,
+acento latón, y marcas de regla como motivo estructural en lugar de separadores decorativos.
+
+El elemento firma es el medidor del hero, que dibuja a escala la compresión del tiempo de gestión
+operativa lograda con el ERP. Al cargar, la barra se comprime sola.
+
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) · React 19 · TypeScript
+- **CSS propio** con custom properties. Sin librería de componentes.
+- **Fuentes auto-hospedadas** vía Fontsource: Archivo Variable (display, eje de anchura),
+  Public Sans Variable (texto), Spline Sans Mono Variable (datos y etiquetas).
+
+## Estructura
+
+```
+app/
+  copy.ts        Contenido ES/EN tipado — una sola fuente de verdad
+  Portfolio.tsx  Componente cliente, maneja el cambio de idioma
+  globals.css    Tokens y estilos
+  layout.tsx     Fuentes y metadatos
+public/
+  CV-Sebastian-Mollinedo.pdf
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para cambiar el contenido se edita `app/copy.ts`. Nada más.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Desarrollo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+## Accesibilidad
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contraste AA, foco visible, `prefers-reduced-motion` respetado, responsive sin scroll horizontal.

@@ -1,26 +1,606 @@
 @import "tailwindcss";
 
+/* ============================================================
+   TOKENS
+   Palette: pale vellum ground, deep ink, brass accent.
+   Chosen for an instrument face — a measuring device, not paper.
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --vellum: #e8e9e2;
+  --paper: #f3f4ee;
+  --ink: #14181a;
+  --ink-2: #5c645f;
+  --ink-3: #8b918a;
+  --rule: #c4c7bd;
+  --brass: #8a6a16;
+  --brass-soft: #b9932f;
+  --petrol: #1e3a42;
+
+  --shell: 68rem;
+  --gap: clamp(1rem, 3vw, 2rem);
+  --pad-y: clamp(3.5rem, 8vw, 6.5rem);
+
+  --font-display: "Archivo Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Public Sans Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Spline Sans Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--vellum);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   SHELL
+   ============================================================ */
+.page {
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+.section {
+  padding: var(--pad-y) 0;
+}
+
+/* ------------------------------------------------------------
+   RULE — the structural motif: a measuring edge, not a divider.
+   Fine ticks every 10px, a taller mark every 50px.
+   ------------------------------------------------------------ */
+.rule {
+  height: 12px;
+  border-top: 1px solid var(--ink);
+  background-image:
+    repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 10px),
+    repeating-linear-gradient(90deg, var(--ink-3) 0 1px, transparent 1px 50px);
+  background-size: auto 5px, auto 10px;
+  background-repeat: repeat-x, repeat-x;
+  background-position: 0 0, 0 0;
+}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 0 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.mark {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0.3rem 0.45rem;
+  cursor: pointer;
+  color: var(--ink-3);
+  font: inherit;
+  text-transform: uppercase;
+  transition: color 0.18s ease;
+}
+
+.lang-btn:hover {
+  color: var(--ink);
+}
+
+.lang-btn[aria-pressed="true"] {
+  color: var(--brass);
+  font-weight: 600;
+}
+
+.lang-sep {
+  color: var(--rule);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: clamp(2.75rem, 7vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.hero-meta {
+  margin: 0 0 clamp(1.4rem, 3vw, 2.1rem);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.hero-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7.4vw, 5.1rem);
+  font-weight: 700;
+  font-stretch: 118%;
+  line-height: 0.96;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+
+.hero-lede {
+  margin: clamp(1.3rem, 3vw, 1.9rem) 0 0;
+  max-width: 46ch;
+  font-size: clamp(1.02rem, 1.7vw, 1.19rem);
+  line-height: 1.58;
+  color: var(--ink-2);
+}
+
+/* ------------------------------------------------------------
+   GAUGE — the signature.
+   The compression this work exists to produce, drawn to scale.
+   ------------------------------------------------------------ */
+.gauge {
+  margin: clamp(2.5rem, 6vw, 3.75rem) 0 0;
+  padding: clamp(1.25rem, 3vw, 1.85rem) clamp(1.1rem, 3vw, 1.75rem) clamp(1.1rem, 2.5vw, 1.5rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+.gauge-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.gauge-rows {
+  margin-top: 1.15rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.gauge-row {
+  display: grid;
+  grid-template-columns: 4.6rem 1fr;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.gauge-key {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-align: right;
+}
+
+.gauge-track {
+  height: 1.45rem;
+  background: color-mix(in srgb, var(--rule) 34%, transparent);
+}
+
+.gauge-bar {
+  height: 100%;
+}
+
+.gauge-bar--before {
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--ink-3) 0 2px,
+    transparent 2px 7px
+  );
+  border-right: 1px solid var(--ink-3);
+}
+
+.gauge-bar--after {
+  width: 8%;
+  background: var(--brass);
+  animation: compress 1.9s cubic-bezier(0.72, 0, 0.16, 1) 0.45s both;
+}
+
+@keyframes compress {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 8%;
+  }
+}
+
+.gauge-scale {
+  margin: 0.55rem 0 0 5.4rem;
+  height: 9px;
+  border-top: 1px solid var(--ink-3);
+  background-image: repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 5%);
+  background-size: auto 5px;
+  background-repeat: repeat-x;
+}
+
+.gauge-ticks {
+  margin: 0.25rem 0 0 5.4rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--ink-3);
+}
+
+.gauge-caption {
+  margin: 1.35rem 0 0;
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.gauge-figure {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 112%;
+  color: var(--brass);
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.eyebrow {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.h2 {
+  margin: 0 0 clamp(1.8rem, 4vw, 2.6rem);
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3.3vw, 2.35rem);
+  font-weight: 600;
+  font-stretch: 108%;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* ============================================================
+   WORK CARDS
+   ============================================================ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.card {
+  padding: clamp(1.3rem, 3vw, 1.9rem);
+  background: var(--paper);
+}
+
+.card-title {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 650;
+  font-stretch: 106%;
+  letter-spacing: -0.008em;
+}
+
+.card-body {
+  margin: 0;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.card-tags {
+  margin: 1.05rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.card-tags li {
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+}
+
+/* ============================================================
+   TIMELINE — years are data, so they carry the structure.
+   ============================================================ */
+.path-item {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.path-item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.path-year {
+  font-family: var(--font-mono);
+  font-size: 1.02rem;
+  color: var(--brass);
+  letter-spacing: 0.04em;
+  padding-top: 0.12rem;
+}
+
+.path-role {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 650;
+  font-stretch: 106%;
+  letter-spacing: -0.008em;
+}
+
+.path-org {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.path-body {
+  margin: 0.75rem 0 0;
+  max-width: 58ch;
+  font-size: 0.925rem;
+  color: var(--ink-2);
+}
+
+/* ============================================================
+   STACK TABLE
+   ============================================================ */
+.stack-row {
+  display: grid;
+  grid-template-columns: 13rem 1fr;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  padding: 0.72rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.stack-row:last-of-type {
+  border-bottom: 1px solid var(--rule);
+}
+
+.stack-k {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding-top: 0.18rem;
+}
+
+.stack-v {
+  font-size: 0.95rem;
+}
+
+.stack-note {
+  margin: 1.7rem 0 0;
+  max-width: 58ch;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+
+/* ============================================================
+   CREDENTIALS
+   ============================================================ */
+.cred-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.cred-row:last-of-type {
+  border-bottom: 1px solid var(--rule);
+}
+
+.cred-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cred-org {
+  margin: 0.15rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+
+.cred-meta {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-body {
+  margin: -1rem 0 2rem;
+  max-width: 46ch;
+  color: var(--ink-2);
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.contact-item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.contact-link {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 0.25rem;
+  text-decoration: none;
+  transition: background-color 0.16s ease, padding-left 0.16s ease;
+}
+
+.contact-link:hover {
+  background: var(--paper);
+  padding-left: 0.75rem;
+}
+
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.contact-value {
+  font-size: 0.98rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-arrow {
+  font-family: var(--font-mono);
+  color: var(--brass);
+  opacity: 0;
+  transition: opacity 0.16s ease;
+}
+
+.contact-link:hover .contact-arrow,
+.contact-link:focus-visible .contact-arrow {
+  opacity: 1;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  padding: 1.5rem 0 2.5rem;
+  border-top: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 760px) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .path-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .stack-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.3rem;
+  }
+
+  .cred-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem;
+  }
+
+  .contact-link {
+    grid-template-columns: 1fr auto;
+  }
+
+  .contact-label {
+    grid-column: 1 / -1;
+  }
+
+  .gauge-row {
+    grid-template-columns: 3.9rem 1fr;
+  }
+
+  .gauge-scale,
+  .gauge-ticks {
+    margin-left: 4.7rem;
+  }
+}
+
+/* ============================================================
+   MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .gauge-bar--after {
+    animation: none;
+    width: 8%;
+  }
+
+  .contact-link,
+  .contact-arrow,
+  .lang-btn {
+    transition: none;
+  }
 }
