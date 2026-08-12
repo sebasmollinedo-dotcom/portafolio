@@ -48,7 +48,7 @@ export default function Timeline({ t }: { t: Copy }) {
         <defs>
           <pattern id="tlHatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
             <rect width="7" height="7" fill="transparent" />
-            <line x1="0" y1="0" x2="0" y2="7" stroke="var(--orange)" strokeWidth="2.2" />
+            <line x1="0" y1="0" x2="0" y2="7" stroke="#5a6068" strokeWidth="2.2" />
           </pattern>
         </defs>
 
