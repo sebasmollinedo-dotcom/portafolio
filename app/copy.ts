@@ -217,6 +217,11 @@ export const copy: Record<Lang, Copy> = {
           meta: "Graduación 2027",
         },
         {
+          title: "Ingeniería en Computer Science",
+          org: "Universidad Francisco Marroquín",
+          meta: "En curso · desde 2027",
+        },
+        {
           title: "Diploma del Bachillerato Internacional",
           org: "IB World School",
           meta: "Completo",
@@ -400,6 +405,11 @@ export const copy: Record<Lang, Copy> = {
           title: "B.Sc. Business Engineering — Data Science",
           org: "Universidad Francisco Marroquín",
           meta: "Graduating 2027",
+        },
+        {
+          title: "B.Sc. Computer Science Engineering",
+          org: "Universidad Francisco Marroquín",
+          meta: "In progress · from 2027",
         },
         {
           title: "International Baccalaureate Diploma",

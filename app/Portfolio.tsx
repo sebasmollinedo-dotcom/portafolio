@@ -10,6 +10,7 @@ const TICKS = ["0", "25", "50", "75", "100%"];
 /** Institution marks. A real logo only where use is unambiguous; otherwise initials. */
 const CRED_MARK: ({ logo: string } | { initials: string })[] = [
   { logo: "/ufm.png" },
+  { logo: "/ufm.png" },
   { initials: "IB" },
   { initials: "PMI" },
   { initials: "MOS" },
