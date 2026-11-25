@@ -3,15 +3,15 @@ export type Lang = "es" | "en";
 /** Spans are data, not copy — shared across languages. Decimal years. */
 export const SPANS = [
   { start: 2020.0, end: 2022.0, current: false },
-  { start: 2022.0, end: 2026.62, current: true },
-  { start: 2026.08, end: 2026.62, current: true },
+  { start: 2022.0, end: 2026.9, current: true },
+  { start: 2026.08, end: 2026.9, current: true },
+  { start: 2026.58, end: 2026.88, current: false },
 ];
 
 export const AXIS_YEARS = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
 
 const links = {
   mail: "sebasmollinedo@gmail.com",
-  phone: "+502 5901-1927",
   linkedin: "linkedin.com/in/sebasmollinedo",
   github: "github.com/sebasmollinedo-dotcom",
 };
@@ -184,6 +184,13 @@ export const copy: Record<Lang, Copy> = {
           short: "Fundador · Forma3D",
           body: "Manufactura por impresión 3D bajo pedido. En expansión hacia la distribución de insumos en Guatemala, bajo esquema B2B y B2C.",
         },
+        {
+          year: "2026",
+          role: "Pasante — Proyecto de consultoría",
+          org: "BAM · Programa Fresh Partners, UFM",
+          short: "Pasante · BAM",
+          body: "Análisis y optimización del proceso de precalificación de créditos empresariales: diagnóstico de procesos, oportunidades de mejora y propuesta de solución tecnológica. Presenté los resultados finales y recibí reconocimiento por parte de BAM.",
+        },
       ],
     },
     stack: {
@@ -249,7 +256,6 @@ export const copy: Record<Lang, Copy> = {
       links: [
         { label: "CV", value: "Descargar en PDF", href: "/CV-Sebastian-Mollinedo.pdf" },
         { label: "Correo", value: links.mail, href: `mailto:${links.mail}` },
-        { label: "Teléfono", value: links.phone, href: "tel:+50259011927" },
         { label: "LinkedIn", value: links.linkedin, href: `https://${links.linkedin}` },
         { label: "GitHub", value: links.github, href: `https://${links.github}` },
       ],
@@ -358,6 +364,13 @@ export const copy: Record<Lang, Copy> = {
           short: "Founder · Forma3D",
           body: "Made-to-order 3D printing manufacturing. Expanding into supply distribution in Guatemala under a B2B and B2C model.",
         },
+        {
+          year: "2026",
+          role: "Intern — Consulting project",
+          org: "BAM · Fresh Partners program, UFM",
+          short: "Intern · BAM",
+          body: "Analysis and optimization of the business-credit pre-qualification process: process diagnosis, improvement opportunities, and a technology solution proposal. Presented the final results and received recognition from BAM.",
+        },
       ],
     },
     stack: {
@@ -423,7 +436,6 @@ export const copy: Record<Lang, Copy> = {
       links: [
         { label: "Résumé", value: "Download PDF", href: "/CV-Sebastian-Mollinedo.pdf" },
         { label: "Email", value: links.mail, href: `mailto:${links.mail}` },
-        { label: "Phone", value: links.phone, href: "tel:+50259011927" },
         { label: "LinkedIn", value: links.linkedin, href: `https://${links.linkedin}` },
         { label: "GitHub", value: links.github, href: `https://${links.github}` },
       ],

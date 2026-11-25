@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { scaleLinear } from "d3-scale";
 import { AXIS_YEARS, SPANS, type Copy } from "./copy";
 
-const DOMAIN: [number, number] = [2020, 2026.72];
+const DOMAIN: [number, number] = [2020, 2026.98];
 
 /**
  * Tenure spans. One data colour (brass) throughout — identity is carried by the
@@ -72,7 +72,9 @@ export default function Timeline({ t }: { t: Copy }) {
           const item = t.path.items[i];
           const years = s.current
             ? `${Math.floor(s.start)} →`
-            : `${Math.floor(s.start)} – ${Math.floor(s.end)}`;
+            : Math.floor(s.start) === Math.floor(s.end)
+              ? `${Math.floor(s.start)}`
+              : `${Math.floor(s.start)} – ${Math.floor(s.end)}`;
           return (
             <g key={item.role} className="tl-row">
               <text x={x0} y={y - 9} className="tl-role">
