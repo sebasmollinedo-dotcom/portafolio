@@ -212,7 +212,7 @@ export const copy: Record<Lang, Copy> = {
       title: "Credenciales",
       items: [
         {
-          title: "Ingeniería Empresarial",
+          title: "Ingeniería Empresarial — Ciencia de los Datos",
           org: "Universidad Francisco Marroquín",
           meta: "Graduación 2027",
         },
@@ -397,7 +397,7 @@ export const copy: Record<Lang, Copy> = {
       title: "Credentials",
       items: [
         {
-          title: "B.Sc. Business Engineering",
+          title: "B.Sc. Business Engineering — Data Science",
           org: "Universidad Francisco Marroquín",
           meta: "Graduating 2027",
         },
