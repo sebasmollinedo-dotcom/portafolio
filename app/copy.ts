@@ -87,7 +87,7 @@ export const copy: Record<Lang, Copy> = {
     meta: {
       title: "Sebastián Mollinedo — Gerente de Tecnología y Analítica",
       description:
-        "Construyo sistemas que convierten operación en decisiones medibles: ERPs multi-sucursal, modelos predictivos y automatización con IA. Guatemala.",
+        "Construyo sistemas que convierten operación en decisiones medibles: un ERP multiempresa con IA integrada, modelos predictivos y automatización de procesos. Guatemala.",
     },
     nav: { toggleLabel: "Cambiar idioma" },
     hero: {
@@ -97,7 +97,7 @@ export const copy: Record<Lang, Copy> = {
       cta: "Descargar CV en PDF",
       role: "Gerente de Tecnología y Analítica",
       roleLines: ["Gerente de", "Tecnología", "y Analítica"],
-      lede: "Construyo sistemas que convierten operación en decisiones medibles. ERPs multi-sucursal, modelos predictivos aplicados a precio e inventario, y automatización con inteligencia artificial.",
+      lede: "Construyo sistemas que convierten operación en decisiones medibles. Un ERP multiempresa con IA integrada, modelos predictivos aplicados a precio e inventario, y automatización de procesos con inteligencia artificial.",
       photoAlt: "Retrato de Sebastián Mollinedo",
       photoCaption: "22 años · Guatemala",
     },
@@ -107,20 +107,20 @@ export const copy: Record<Lang, Copy> = {
       after: "Después",
       figure: "más del 90%",
       caption:
-        "Reducción lograda al reemplazar hojas de cálculo y papel por el ERP que diseñé y desarrollé.",
+        "Reducción lograda al migrar de Odoo a Shopify y automatizar las hojas de Excel de trabajo.",
     },
     stats: {
       eyebrow: "Medición",
       title: "En cifras",
       items: [
-        { prefix: "0", target: 6, suffix: "", label: "Años construyendo sistemas" },
+        { prefix: "0", target: 6, suffix: "", label: "Años en el grupo" },
         { prefix: "", target: 15, suffix: "", label: "Personas a cargo" },
-        { prefix: "", target: 23, suffix: "", label: "Módulos en producción" },
+        { prefix: "", target: 2, suffix: "", label: "Plazas de tiempo completo liberadas" },
         { prefix: "", target: 90, suffix: "%", label: "Menos tiempo operativo" },
       ],
     },
     marquee: [
-      "ERP multi-sucursal",
+      "ERP multiempresa",
       "Machine Learning",
       "Automatización con IA",
       "Python",
@@ -135,8 +135,8 @@ export const copy: Record<Lang, Copy> = {
       title: "Cuatro frentes, un mismo oficio",
       items: [
         {
-          title: "ERP multi-sucursal",
-          body: "Diseñé y desarrollé desde cero un ERP de 23 módulos —inventario, ventas, compras y reportería— para una operación de retail con múltiples sucursales. Sustituyó un flujo que vivía en hojas de cálculo y papel. Hoy lidero su expansión a nivel corporativo.",
+          title: "ERP multiempresa con IA",
+          body: "Desde 2026 desarrollo un ERP multiempresa con inteligencia artificial integrada para unificar las operaciones de las empresas del grupo. Está en desarrollo.",
           tags: ["Django", "PostgreSQL", "Docker"],
         },
         {
@@ -158,17 +158,17 @@ export const copy: Record<Lang, Copy> = {
     },
     path: {
       eyebrow: "Trayectoria",
-      title: "De escribir el sistema a dirigir el área",
+      title: "De liderar la migración a dirigir el área",
       chartLabel: "Períodos por posición",
       current: "En curso",
       closed: "Concluido",
       items: [
         {
           year: "2020",
-          role: "Desarrollador de plataformas digitales",
-          org: "Grupo empresarial de retail · Guatemala",
-          short: "Desarrollador",
-          body: "Entré a construir el ERP. Responsable único del ciclo completo: requerimientos, arquitectura, desarrollo, despliegue y mantenimiento.",
+          role: "Líder de la migración de Odoo a Shopify",
+          org: "Viceversa Import Export, S.A. · Guatemala",
+          short: "Migración Odoo a Shopify",
+          body: "Lideré el cambio de plataforma de Odoo a Shopify y la automatización de las hojas de Excel de trabajo. El tiempo de gestión por proceso bajó de 6 horas a 30 minutos.",
         },
         {
           year: "2022",
@@ -231,6 +231,11 @@ export const copy: Record<Lang, Copy> = {
           org: "Microsoft",
           meta: "2026",
         },
+        {
+          title: "Generative AI for NLP with PyTorch — Especialización",
+          org: "IBM · Coursera",
+          meta: "Nov. 2026 · 4 cursos",
+        },
       ],
     },
     personal: {
@@ -267,7 +272,7 @@ export const copy: Record<Lang, Copy> = {
     meta: {
       title: "Sebastián Mollinedo — Technology & Analytics Manager",
       description:
-        "I build systems that turn operations into measurable decisions: multi-branch ERPs, predictive models, and AI automation. Guatemala.",
+        "I build systems that turn operations into measurable decisions: a multi-company ERP with built-in AI, predictive models, and process automation. Guatemala.",
     },
     nav: { toggleLabel: "Switch language" },
     hero: {
@@ -277,7 +282,7 @@ export const copy: Record<Lang, Copy> = {
       cta: "Download résumé (PDF)",
       role: "Technology & Analytics Manager",
       roleLines: ["Technology", "& Analytics", "Manager"],
-      lede: "I build systems that turn operations into measurable decisions. Multi-branch ERPs, predictive models applied to pricing and inventory, and automation powered by AI.",
+      lede: "I build systems that turn operations into measurable decisions. A multi-company ERP with built-in AI, predictive models applied to pricing and inventory, and process automation powered by AI.",
       photoAlt: "Portrait of Sebastián Mollinedo",
       photoCaption: "22 · Guatemala",
     },
@@ -287,20 +292,20 @@ export const copy: Record<Lang, Copy> = {
       after: "After",
       figure: "over 90%",
       caption:
-        "Reduction achieved by replacing spreadsheets and paper with the ERP I designed and built.",
+        "Reduction achieved by migrating from Odoo to Shopify and automating the working Excel sheets.",
     },
     stats: {
       eyebrow: "Measured",
       title: "By the numbers",
       items: [
-        { prefix: "0", target: 6, suffix: "", label: "Years building systems" },
+        { prefix: "0", target: 6, suffix: "", label: "Years in the group" },
         { prefix: "", target: 15, suffix: "", label: "People managed" },
-        { prefix: "", target: 23, suffix: "", label: "Modules in production" },
+        { prefix: "", target: 2, suffix: "", label: "Full-time roles freed up" },
         { prefix: "", target: 90, suffix: "%", label: "Less operational time" },
       ],
     },
     marquee: [
-      "Multi-branch ERP",
+      "Multi-company ERP",
       "Machine Learning",
       "AI automation",
       "Python",
@@ -315,8 +320,8 @@ export const copy: Record<Lang, Copy> = {
       title: "Four fronts, one craft",
       items: [
         {
-          title: "Multi-branch ERP",
-          body: "Designed and built from scratch a 23-module ERP — inventory, sales, purchasing, and reporting — for a retail operation with multiple branches. It replaced a workflow that lived in spreadsheets and on paper. I now lead its rollout across the group.",
+          title: "Multi-company ERP with AI",
+          body: "Since 2026 I have been building a multi-company ERP with built-in artificial intelligence to unify the operations of the group's companies. In development.",
           tags: ["Django", "PostgreSQL", "Docker"],
         },
         {
@@ -338,17 +343,17 @@ export const copy: Record<Lang, Copy> = {
     },
     path: {
       eyebrow: "Track record",
-      title: "From writing the system to running the department",
+      title: "From leading the migration to running the department",
       chartLabel: "Tenure by position",
       current: "Ongoing",
       closed: "Closed",
       items: [
         {
           year: "2020",
-          role: "Digital platforms developer",
-          org: "Retail group · Guatemala",
-          short: "Developer",
-          body: "Joined to build the ERP. Sole owner of the full cycle: requirements, architecture, development, deployment, and maintenance.",
+          role: "Lead of the Odoo-to-Shopify migration",
+          org: "Viceversa Import Export, S.A. · Guatemala",
+          short: "Odoo to Shopify migration",
+          body: "Led the platform change from Odoo to Shopify and the automation of the working Excel sheets. Handling time per process dropped from 6 hours to 30 minutes.",
         },
         {
           year: "2022",
@@ -410,6 +415,11 @@ export const copy: Record<Lang, Copy> = {
           title: "Microsoft Office Specialist — Excel Expert",
           org: "Microsoft",
           meta: "2026",
+        },
+        {
+          title: "Generative AI for NLP with PyTorch — Specialization",
+          org: "IBM · Coursera",
+          meta: "Nov. 2026 · 4 courses",
         },
       ],
     },

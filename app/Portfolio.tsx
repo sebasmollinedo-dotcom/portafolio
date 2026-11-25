@@ -13,6 +13,7 @@ const CRED_MARK: ({ logo: string } | { initials: string })[] = [
   { initials: "IB" },
   { initials: "PMI" },
   { initials: "MOS" },
+  { initials: "NLP" },
 ];
 
 function useReveal() {
